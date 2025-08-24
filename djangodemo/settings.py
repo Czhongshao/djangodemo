@@ -72,12 +72,43 @@ WSGI_APPLICATION = 'djangodemo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# 配置 MySQL8 数据库
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'steamdb', # 数据库名
+        'USER': 'steamdb', # 可以给项目单独建用户
+        'PASSWORD': 'steamdb', # 密码
+        'HOST': '127.0.0.1', # 本地：127.0.0.1 若是存在远端，可替换为对应公网ip
+        'PORT': '3306', # MySQL 默认端口
     }
 }
+
+"""
+参考配置sql语句:
+
+-- 创建数据库（如果还没建）
+CREATE DATABASE IF NOT EXISTS steamdb
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+-- 创建专用用户（本地连接）
+CREATE USER IF NOT EXISTS 'steamdb'@'localhost'
+  IDENTIFIED WITH mysql_native_password BY 'steamdb';
+
+-- 只授予该用户对 steamdb 的全部权限
+GRANT ALL PRIVILEGES ON steamdb.* TO 'steamdb'@'localhost';
+
+-- 立即生效
+FLUSH PRIVILEGES;
+"""
 
 
 # Password validation
