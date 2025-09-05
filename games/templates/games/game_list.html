@@ -1,0 +1,23 @@
+<!-- games/templates/games/game_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game List</title>
+</head>
+<body>
+    <h1>Game List</h1>
+    <ul>
+        {% for game in games %}
+            <li>
+                <strong>{{ game.name }}</strong><br>
+                Developers: {{ game.developers }}<br>
+                Publishers: {{ game.publishers }}<br>
+                Release Date: {{ game.release_date }}<br>
+                Price: {{ game.price_initial }} USD<br>
+                <br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

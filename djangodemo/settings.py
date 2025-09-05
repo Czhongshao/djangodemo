@@ -31,12 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'simpleui', # diango 后端美化ui
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'games', # app1
 ]
 
 MIDDLEWARE = [
@@ -133,7 +135,27 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+## simple ui 模块设置
+# LOGO
+# SIMPLEUI_LOGO = ''
+
+# 右侧广告link
+SIMPLEUI_HOME_INFO = False
+SIMPLEUI_ANALYSIS = False
+
+# 默认主题
+# Admin Lte风格
+# SIMPLEUI_DEFAULT_THEME = 'admin.lte.css'
+# Element-ui风格
+# SIMPLEUI_DEFAULT_THEME = 'element.css'
+# layui风格
+# SIMPLEUI_DEFAULT_THEME = 'layui.css'
+# 紫色风格
+# SIMPLEUI_DEFAULT_THEME = 'purple.css'
+##
+
+LANGUAGE_CODE = 'zh-hans'
+
 
 TIME_ZONE = 'UTC'
 
